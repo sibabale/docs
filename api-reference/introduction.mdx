@@ -1,33 +1,52 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Explore Banker, an open source banking API that enables seamless financial integrations'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+<Warning>
+ This API is currently in its early stages of development. It is maintained by a single developer and may not be stable. Features and endpoints are subject to change without notice. Please use with caution and report any issues to the maintainer.
+</Warning>
 
-## Welcome
+## Base URL
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+The Banker API is built on **REST** principles. We enforce **HTTPS** in every request to improve data security, integrity, and privacy. The API does not support **HTTP**.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+All requests contain the following base URL:
+
+```
+https://api.bankerapi.com
+```
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+To authenticate you need to add an **Authorization** header with the contents of the header being `Bearer ba_123456789` where `ba_123456789`   is the default API Key.
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+<Note>
+We are currently using a static token for authentication due to the early stages of development. This approach will be replaced with a more secure method in the future.
+</Note>
+
+
 ```
+Authorization: Bearer ba_123456789
+```
+
+## Response codes
+
+Banker uses standard HTTP codes to indicate the success or failure of your requests.
+
+In general, `2xx` HTTP codes correspond to success, `4xx` codes are for user-related failures, and `5xx` codes are for infrastructure issues.
+
+| Status Code | Description                          |
+|-------------|--------------------------------------|
+| `200`         | Successful request.                  |
+| `400`         | Check that the parameters were correct. |
+| `401`         | The API key used was missing.        |
+| `403`         | The API key used was invalid.        |
+| `404`         | The resource was not found.          |
+| `429`         | The rate limit was exceeded.         |
+| `500`         | Indicates an error with Banker servers. |
+
+
+## Rate limit
+
+The default maximum rate limit is **2 requests per second**. This number can be increased for trusted senders by request. After that, you’ll hit the rate limit and receive a `429` response error code.
