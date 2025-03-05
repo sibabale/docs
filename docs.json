@@ -24,19 +24,11 @@
             "pages": [
               "api-reference/accounts/get",
               "api-reference/accounts/create",
-              "api-reference/accounts/delete",
-              "api-reference/accounts/webhook"
-            ]
-          },
-          {
-            "group": "Transactions",
-            "pages": [
-              "api-reference/transactions/get",
-              "api-reference/transactions/create",
-              "api-reference/transactions/delete",
-              "api-reference/transactions/webhook"
+              "api-reference/accounts/update",
+              "api-reference/accounts/delete"
             ]
           }
+         
         ]
       }
     ]
