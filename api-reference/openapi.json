@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:3000/api"
     }
   ],
   "security": [
@@ -30,6 +30,66 @@
       },
       "post": {
         "description": "Creates a new account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/AccountCreated"
+          }
+        }
+      }
+    },
+    "/transactions": {
+      "get": {
+        "description": "Returns all transactions from the system",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/AccountsResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new transaction",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/AccountCreated"
+          }
+        }
+      }
+    },
+    "/transactions/{id}": {
+      "get": {
+        "description": "Returns a single transaction by ID",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/AccountsResponse"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new transaction",
         "requestBody": {
           "content": {
             "application/json": {

@@ -27,6 +27,14 @@
               "api-reference/accounts/update",
               "api-reference/accounts/delete"
             ]
+          },
+          {
+            "group": "Transactions",
+            "pages": [
+              "api-reference/transactions/get",
+              "api-reference/transactions/getOne",
+              "api-reference/transactions/create"
+            ]
           }
          
         ]
